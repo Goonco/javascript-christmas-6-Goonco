@@ -1,7 +1,15 @@
 export const PRINT_MESSAGE = {
   START_PLANNER: '안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.',
   SHOW_BENEFITS: (visitDate) =>
-    `${visitDate}월 26일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`,
+    `12월 ${visitDate}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!`,
+};
+
+export const PRINT_HEADERS = {
+  ORDER_LIST: '<주문 메뉴>',
+};
+
+export const PRINT_FORMATS = {
+  ORDER_RESULT: (menu, orderQuantatiy) => `${menu} ${orderQuantatiy}개`,
 };
 
 export const READ_MESSAGE = {
