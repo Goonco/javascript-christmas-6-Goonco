@@ -22,8 +22,13 @@ const OutputView = {
     });
   },
 
+  printTotalPriceBeforeSale(totalPrice) {
+    Console.print(PRINT_HEADERS.BEFORE_SALE);
+    Console.print(PRINT_FORMATS.BEFORE_SALE_RESULT(totalPrice));
+  },
+
   printLineChange() {
-    Console.print('\n');
+    Console.print('');
   },
 };
 
