@@ -53,4 +53,24 @@ describe('MenuOrder 클래스 테스트', () => {
       });
     }).toThrow(ERROR_ORDER_TOO_MUCH_ORDER);
   });
+
+  test('주문메뉴와 주문수를 합쳐 리스트를 생성한다.', () => {
+    const menuOrder = new MenuOrder({
+      menuList: ['제로콜라', '초코케이크', '크리스마스파스타'],
+      orderNumberList: [1, 1, 1],
+    });
+    expect(menuOrder.generateOrderList()).toEqual([
+      ['제로콜라', 1],
+      ['초코케이크', 1],
+      ['크리스마스파스타', 1],
+    ]);
+  });
+
+  test('총 주문 금액을 계산한다.', () => {
+    const menuOrder = new MenuOrder({
+      menuList: ['제로콜라', '초코케이크', '크리스마스파스타'],
+      orderNumberList: [1, 1, 1],
+    });
+    expect(menuOrder.calculateTotalPrice()).toBe(43000);
+  });
 });
