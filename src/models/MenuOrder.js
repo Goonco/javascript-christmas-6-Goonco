@@ -33,6 +33,14 @@ class MenuOrder {
     isOrderPositiveInteger(orderNumberList);
     isNotTooMuchOrder(orderNumberList);
   }
+
+  generateOrderList() {
+    const orderList = this.#menuList.map((menu, idx) => [
+      menu,
+      this.#orderNumberList[idx],
+    ]);
+    return orderList;
+  }
 }
 
 export default MenuOrder;
