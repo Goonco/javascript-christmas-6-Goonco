@@ -35,4 +35,22 @@ describe('MenuOrder 클래스 테스트', () => {
       });
     }).toThrow(ERROR_MENU_ONLY_DRINKS);
   });
+
+  test('주문 수가 양의 정수가 아닐 경우 예외가 발생한다.', () => {
+    expect(() => {
+      new MenuOrder({
+        menuList: ['제로콜라', '초코케이크'],
+        orderNumberList: [7, -1],
+      });
+    }).toThrow(ERROR_ORDER_NOT_POSTIVE_INTEGER);
+  });
+
+  test('총 주문 수가 20보다 클 경우 예외가 발생한다.', () => {
+    expect(() => {
+      new MenuOrder({
+        menuList: ['제로콜라', '초코케이크', '크리스마스파스타'],
+        orderNumberList: [5, 6, 10],
+      });
+    }).toThrow(ERROR_ORDER_TOO_MUCH_ORDER);
+  });
 });
