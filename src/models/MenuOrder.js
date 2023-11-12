@@ -1,3 +1,4 @@
+import WOOWA_MENU from '../constants/WoowaMenu.js';
 import {
   isExistingMenu,
   isUniqueMenuList,
@@ -40,6 +41,14 @@ class MenuOrder {
       this.#orderNumberList[idx],
     ]);
     return orderList;
+  }
+
+  calculateTotalPrice() {
+    let totalPrice = 0;
+    this.#menuList.forEach((menu, idx) => {
+      totalPrice += WOOWA_MENU[menu].price * this.#orderNumberList[idx];
+    });
+    return totalPrice;
   }
 }
 
