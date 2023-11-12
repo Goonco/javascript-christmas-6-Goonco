@@ -6,10 +6,12 @@ export const PRINT_MESSAGE = {
 
 export const PRINT_HEADERS = {
   ORDER_LIST: '<주문 메뉴>',
+  BEFORE_SALE: '<할인 전 총주문 금액>',
 };
 
 export const PRINT_FORMATS = {
   ORDER_RESULT: (menu, orderQuantatiy) => `${menu} ${orderQuantatiy}개`,
+  BEFORE_SALE_RESULT: (beforeSale) => `${beforeSale.toLocaleString('ko-KR')}원`,
 };
 
 export const READ_MESSAGE = {
