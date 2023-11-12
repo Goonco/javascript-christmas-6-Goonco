@@ -8,6 +8,10 @@ class VisitDate {
     this.#visitDate = visitDate;
   }
 
+  getVisitDate() {
+    return this.#visitDate;
+  }
+
   #validate(visitDate) {
     isInteger(visitDate);
     isDateInBound(visitDate);
