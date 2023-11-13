@@ -1,5 +1,5 @@
-import WOOWA_MENU from '../constants/WoowaMenu';
-import DEFAULT_BENEFIT_BOARD from '../constants/Benefit';
+import WOOWA_MENU from '../constants/WoowaMenu.js';
+import DEFAULT_BENEFIT_BOARD from '../constants/Benefit.js';
 
 class BenefitChecker {
   #benefitBoard;
