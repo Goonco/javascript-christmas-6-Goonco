@@ -12,13 +12,38 @@ class BenefitChecker {
     return this.#benefitBoard;
   }
 
-  checkAllBenefit(visitDay, menuOrder) {
+  checkAllBenefit(visitDate, menuOrder) {
     this.#checkFreebie(menuOrder);
+    this.#checkWeekDaySale(visitDate, menuOrder);
+    this.#checkWeekendDaySale(visitDate, menuOrder);
+    this.#checkSpecailDaySale(visitDate);
+    this.#checkChristmasDDaySale(visitDate);
   }
 
   #checkFreebie(menuOrder) {
     if (menuOrder.calculateTotalPrice() >= 120000)
       this.#benefitBoard.freebie = ['샴페인', WOOWA_MENU['샴페인'].price];
+  }
+
+  #checkWeekDaySale(visitDate, menuOrder) {
+    if (!visitDate.checkWeekDay()) return;
+    this.#benefitBoard.weekDay = 2023 * menuOrder.countByMenuType('디저트');
+  }
+
+  #checkWeekendDaySale(visitDate, menuOrder) {
+    if (!visitDate.checkWeekendDay()) return;
+    this.#benefitBoard.weekendDay = 2023 * menuOrder.countByMenuType('메인');
+  }
+
+  #checkSpecailDaySale(visitDate) {
+    if (!visitDate.checkSpecialDay()) return;
+    this.#benefitBoard.special = 1000;
+  }
+
+  #checkChristmasDDaySale(visitDate) {
+    const dDay = visitDate.checkChristmasDDay();
+    if (dDay === -1) return;
+    this.#benefitBoard.christmasDDay = 1000 + 100 * dDay;
   }
 }
 
