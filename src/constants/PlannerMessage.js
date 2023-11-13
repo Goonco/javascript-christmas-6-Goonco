@@ -7,6 +7,11 @@ export const PRINT_MESSAGE = {
 export const PRINT_HEADERS = {
   ORDER_LIST: '<주문 메뉴>',
   BEFORE_SALE: '<할인 전 총주문 금액>',
+  FREEBIE: '<증정 메뉴>',
+  BENEFITS: '<혜택 내역>',
+  TOTAL_BENEFITS: '<총혜택 금액>',
+  AFTER_SALE: '<할인 후 예상 결제 금액>',
+  BADGE: '<12월 이벤트 배지>',
 };
 
 export const PRINT_FORMATS = {
