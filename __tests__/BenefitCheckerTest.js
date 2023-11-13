@@ -21,4 +21,8 @@ describe('BenefitChecker 클래스 테스트', () => {
       freebie: ['샴페인', 25000],
     });
   });
+
+  test('총 혜택 금액을 계산한다.', () => {
+    expect(benefitChecker.calculateTotalBenefit()).toBe(31246);
+  });
 });
