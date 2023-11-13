@@ -73,4 +73,19 @@ describe('MenuOrder 클래스 테스트', () => {
     });
     expect(menuOrder.calculateTotalPrice()).toBe(43000);
   });
+
+  test('주문 내에 특정 메뉴 타입을 가진 주문 개수 확인', () => {
+    const menuOrder = new MenuOrder({
+      menuList: [
+        '아이스크림',
+        '초코케이크',
+        '크리스마스파스타',
+        '레드와인',
+        '제로콜라',
+      ],
+      orderNumberList: [3, 2, 1, 4, 3],
+    });
+    expect(menuOrder.countByMenuType('디저트')).toBe(5);
+    expect(menuOrder.countByMenuType('음료')).toBe(7);
+  });
 });
