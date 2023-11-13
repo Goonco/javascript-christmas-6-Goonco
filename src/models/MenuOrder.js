@@ -50,6 +50,15 @@ class MenuOrder {
     });
     return totalPrice;
   }
+
+  countByMenuType(menuType) {
+    let count = 0;
+    this.#menuList.forEach((menu, idx) => {
+      if (WOOWA_MENU[menu].type === menuType)
+        count += this.#orderNumberList[idx];
+    });
+    return count;
+  }
 }
 
 export default MenuOrder;
