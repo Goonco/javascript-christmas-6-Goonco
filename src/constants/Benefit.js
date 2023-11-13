@@ -1,8 +1,8 @@
 const DEFAULT_BENEFIT_BOARD = {
-  christmasDDay: false,
+  christmasDDay: 0,
   weekDay: 0,
   weekendDay: 0,
-  special: false,
+  special: 0,
   freebie: 0,
 };
 
