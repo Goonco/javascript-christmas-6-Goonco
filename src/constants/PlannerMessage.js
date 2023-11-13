@@ -16,7 +16,20 @@ export const PRINT_HEADERS = {
 
 export const PRINT_FORMATS = {
   ORDER_RESULT: (menu, orderQuantatiy) => `${menu} ${orderQuantatiy}개`,
-  BEFORE_SALE_RESULT: (beforeSale) => `${beforeSale.toLocaleString('ko-KR')}원`,
+  POSITIVE_MONEY_RESULT: (beforeSale) =>
+    `${beforeSale.toLocaleString('ko-KR')}원`,
+  CHRISTMAS_BENEFIT_RESULT: (sale) =>
+    `크리스마스 디데이 할인: -${sale.toLocaleString('ko-KR')}원`,
+  WEEKDAY_BENEFIT_RESULT: (sale) =>
+    `평일 할인: -${sale.toLocaleString('ko-KR')}원`,
+  WEEKENDDAY_BENEFIT_RESULT: (sale) =>
+    `주말 할인: -${sale.toLocaleString('ko-KR')}원`,
+  SPECIAL_BENEFIT_RESULT: (sale) =>
+    `특별 할인: -${sale.toLocaleString('ko-KR')}원`,
+  FREEBIE_BENEFIT_RESULT: (sale) =>
+    `증정 이벤트: -${sale.toLocaleString('ko-KR')}원`,
+  NEGATIVE_MONEY_RESULT: (sale) => `-${sale.toLocaleString('ko-KR')}원`,
+  NO_BENEFIT: '없음',
 };
 
 export const READ_MESSAGE = {
