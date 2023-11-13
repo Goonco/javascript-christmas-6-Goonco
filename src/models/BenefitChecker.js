@@ -32,6 +32,13 @@ class BenefitChecker {
     return totalBenefit;
   }
 
+  calculateEventBadge() {
+    const totalBenefit = this.calculateTotalBenefit();
+    if (totalBenefit > 20000) return '산타';
+    if (totalBenefit > 10000) return '트리';
+    if (totalBenefit > 5000) return '별';
+  }
+
   #checkFreebie(menuOrder) {
     if (menuOrder.calculateTotalPrice() >= 120000)
       this.#benefitBoard.freebie = ['샴페인', WOOWA_MENU['샴페인'].price];
