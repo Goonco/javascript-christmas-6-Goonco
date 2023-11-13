@@ -25,4 +25,8 @@ describe('BenefitChecker 클래스 테스트', () => {
   test('총 혜택 금액을 계산한다.', () => {
     expect(benefitChecker.calculateTotalBenefit()).toBe(31246);
   });
+
+  test('이벤트 뱃지를 계산한다.', () => {
+    expect(benefitChecker.calculateEventBadge()).toBe('산타');
+  });
 });
