@@ -20,6 +20,18 @@ class BenefitChecker {
     this.#checkChristmasDDaySale(visitDate);
   }
 
+  calculateTotalBenefit() {
+    const values = Object.values(this.#benefitBoard);
+
+    let totalBenefit = 0;
+    values.forEach((value) => {
+      if (value.length === 2) totalBenefit += value[1];
+      else totalBenefit += value;
+    });
+
+    return totalBenefit;
+  }
+
   #checkFreebie(menuOrder) {
     if (menuOrder.calculateTotalPrice() >= 120000)
       this.#benefitBoard.freebie = ['샴페인', WOOWA_MENU['샴페인'].price];
