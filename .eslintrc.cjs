@@ -23,5 +23,7 @@ module.exports = {
     'max-depth': ['error', 2],
     // 'max-params': ['error', 3],
     'max-lines-per-function': ['error', { max: 15 }],
+    'import/prefer-default-export': 'off',
+    'import/extensions': ['off'],
   },
 };
