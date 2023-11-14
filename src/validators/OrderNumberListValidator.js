@@ -1,7 +1,4 @@
-import {
-  ERROR_ORDER_NOT_POSTIVE_INTEGER,
-  ERROR_ORDER_TOO_MUCH_ORDER,
-} from '../constants/ErrorMessage.js';
+import { ERROR_ORDER } from '../constants/ErrorMessage.js';
 
 const isPositiveInteger = (number) => {
   if (Number.isInteger(number) && number > 0) return true;
@@ -10,7 +7,8 @@ const isPositiveInteger = (number) => {
 
 export const isOrderPositiveInteger = (orderList) => {
   const checkOrderIntegr = orderList.every((order) => isPositiveInteger(order));
-  if (!checkOrderIntegr) throw new Error(ERROR_ORDER_NOT_POSTIVE_INTEGER);
+  if (!checkOrderIntegr)
+    throw new Error(ERROR_ORDER.ORDER_NOT_POSITIVE_INTEGER);
 };
 
 export const isNotTooMuchOrder = (orderList) => {
@@ -18,5 +16,5 @@ export const isNotTooMuchOrder = (orderList) => {
   orderList.forEach((order) => {
     totalOrder += order;
   });
-  if (totalOrder > 20) throw new Error(ERROR_ORDER_TOO_MUCH_ORDER);
+  if (totalOrder > 20) throw new Error(ERROR_ORDER.ORDER_TOO_MUCH);
 };

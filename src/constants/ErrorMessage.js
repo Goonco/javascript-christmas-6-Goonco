@@ -1,19 +1,16 @@
-export const ERROR_DATE_NOT_A_INTEGER =
-  '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.';
-export const ERROR_DATE_OUT_OF_BOUND =
-  '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.';
+export const ERROR_VISIT_DATE = {
+  DATE_NOT_A_INTEGER: '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.',
+  DATE_OUT_OF_BOUND: '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.',
+};
 
-export const ERROR_MENU_NOT_EXISTING =
-  '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.';
+export const ERROR_MENU = {
+  MENU_NOT_EXISTING: '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+  MENU_NOT_UNIQUE: '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+  MENU_ONLY_DRINKS: '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+};
 
-export const ERROR_MENU_NOT_UNIQUE =
-  '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.';
-
-export const ERROR_MENU_ONLY_DRINKS =
-  '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.';
-
-export const ERROR_ORDER_NOT_POSTIVE_INTEGER =
-  '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.';
-
-export const ERROR_ORDER_TOO_MUCH_ORDER =
-  '[ERROR] 메뉴는 최대 20개까지만 주문할 수 있습니다. 다시 입력해 주세요.';
+export const ERROR_ORDER = {
+  ORDER_NOT_POSITIVE_INTEGER:
+    '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+  ORDER_TOO_MUCH: '[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.',
+};
