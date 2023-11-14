@@ -1,5 +1,6 @@
 import WOOWA_MENU from '../constants/WoowaMenu.js';
 import DEFAULT_BENEFIT_BOARD from '../constants/Benefit.js';
+import EventCalendar from './EventCalendar.js';
 
 class BenefitChecker {
   #benefitBoard;
@@ -64,12 +65,14 @@ class BenefitChecker {
 
   #checkWeekDaySale(visitDate, menuOrder) {
     if (!visitDate.checkWeekDay()) return;
-    this.#benefitBoard.weekDay = 2023 * menuOrder.countByMenuType('디저트');
+    this.#benefitBoard.weekDay =
+      EventCalendar.getYear() * menuOrder.countByMenuType('디저트');
   }
 
   #checkWeekendDaySale(visitDate, menuOrder) {
     if (!visitDate.checkWeekendDay()) return;
-    this.#benefitBoard.weekendDay = 2023 * menuOrder.countByMenuType('메인');
+    this.#benefitBoard.weekendDay =
+      EventCalendar.getYear() * menuOrder.countByMenuType('메인');
   }
 
   #checkSpecailDaySale(visitDate) {

@@ -2,17 +2,18 @@ import {
   isDayPositiveInteger,
   isDayInBound,
 } from '../validators/DateValidators.js';
+import EventCalendar from './EventCalendar.js';
 
 class VisitDate {
   #visitDate;
 
   constructor(visitDate) {
     this.#validate(visitDate);
-    this.#visitDate = new Date(`2023-12-${visitDate}`);
+    this.#visitDate = visitDate;
   }
 
   getVisitDate() {
-    return this.#visitDate.getDate();
+    return this.#visitDate;
   }
 
   #validate(visitDate) {
@@ -21,28 +22,25 @@ class VisitDate {
   }
 
   checkWeekDay() {
-    const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
-    const day = DAYS[this.#visitDate.getDay()];
-    if (day !== '금' && day !== '토') return true;
+    const dayOfWeek = EventCalendar.getDayOfTheWeek(this.#visitDate);
+    if (dayOfWeek !== '금' && dayOfWeek !== '토') return true;
     return false;
   }
 
   checkWeekendDay() {
-    const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
-    const day = DAYS[this.#visitDate.getDay()];
-    if (day === '금' || day === '토') return true;
+    const dayOfWeek = EventCalendar.getDayOfTheWeek(this.#visitDate);
+    if (dayOfWeek === '금' || dayOfWeek === '토') return true;
     return false;
   }
 
   checkSpecialDay() {
-    const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
-    const day = DAYS[this.#visitDate.getDay()];
-    if (day === '일' || this.#visitDate.getDate() === 25) return true;
+    const dayOfWeek = EventCalendar.getDayOfTheWeek(this.#visitDate);
+    if (dayOfWeek === '일' || this.#visitDate === 25) return true;
     return false;
   }
 
   checkChristmasDDay() {
-    if (this.#visitDate.getDate() <= 25) return this.#visitDate.getDate() - 1;
+    if (this.#visitDate <= 25) return this.#visitDate - 1;
     return -1;
   }
 }

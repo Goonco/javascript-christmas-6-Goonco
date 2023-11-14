@@ -6,6 +6,8 @@ import stringToMenuOrder from './utils/StringToMenuOrder.js';
 import MenuOrder from './models/MenuOrder.js';
 import BenefitChecker from './models/BenefitChecker.js';
 import readUntilNoError from './utils/ReadUntilNoError.js';
+import EventCalendar from './models/EventCalendar.js';
+import { EVENT_YEAR, EVENT_MONTH } from './constants/EventConstants.js';
 
 class EventPlanner {
   async run() {
@@ -18,7 +20,7 @@ class EventPlanner {
   }
 
   #activate() {
-    // setDate(2023-12)
+    EventCalendar.makeCalendar(EVENT_YEAR, EVENT_MONTH);
     OutputView.printStartMessage();
   }
 
