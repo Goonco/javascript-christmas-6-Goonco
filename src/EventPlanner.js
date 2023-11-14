@@ -5,44 +5,36 @@ import VisitDate from './models/VisitDate.js';
 import stringToMenuOrder from './utils/StringToMenuOrder.js';
 import MenuOrder from './models/MenuOrder.js';
 import BenefitChecker from './models/BenefitChecker.js';
-import {
-  ERROR_DATE_NOT_A_INTEGER,
-  ERROR_MENU_NOT_EXISTING,
-} from './constants/ErrorMessage.js';
+import readUntilNoError from './utils/ReadUntilNoError.js';
 
 class EventPlanner {
-  activate() {
+  async run() {
+    this.#activate();
+    const visitDate = await readUntilNoError(this.#generateVisitDate);
+    const menuOrder = await readUntilNoError(this.#generateMenuOrder);
+    const benefitChecer = this.#calculateBenefits(visitDate, menuOrder);
+    this.#showOrderResult(visitDate, menuOrder);
+    this.#showBenefitResult(menuOrder, benefitChecer);
+  }
+
+  #activate() {
     // setDate(2023-12)
     OutputView.printStartMessage();
   }
 
-  async generateVisitDate() {
-    while (true) {
-      const rawVisitDate = await InputView.readVisitDate();
-      const parsedVisitDate = stringToVisitDate(rawVisitDate);
-      try {
-        return new VisitDate(parsedVisitDate);
-      } catch (e) {
-        // OutputView.printErrorMessage(ERROR_DATE_NOT_A_INTEGER);
-        OutputView.printErrorMessage(e);
-      }
-    }
+  async #generateVisitDate() {
+    const rawVisitDate = await InputView.readVisitDate();
+    const parsedVisitDate = stringToVisitDate(rawVisitDate);
+    return new VisitDate(parsedVisitDate);
   }
 
-  async generateMenuOrder() {
-    while (true) {
-      const rawMenuOrder = await InputView.readMenuOrder();
-      const parsedMenuOrder = stringToMenuOrder(rawMenuOrder);
-      try {
-        return new MenuOrder(parsedMenuOrder);
-      } catch (e) {
-        // OutputView.printErrorMessage(ERROR_MENU_NOT_EXISTING);
-        OutputView.printErrorMessage(e);
-      }
-    }
+  async #generateMenuOrder() {
+    const rawMenuOrder = await InputView.readMenuOrder();
+    const parsedMenuOrder = stringToMenuOrder(rawMenuOrder);
+    return new MenuOrder(parsedMenuOrder);
   }
 
-  showOrderResult(visitDate, menuOrder) {
+  #showOrderResult(visitDate, menuOrder) {
     OutputView.printShowBenefitMessage(visitDate.getVisitDate());
     OutputView.printLineChange();
     OutputView.printOrderResult(menuOrder.generateOrderList());
@@ -51,12 +43,12 @@ class EventPlanner {
     OutputView.printLineChange();
   }
 
-  calculateBenefits(visitDate, menuOrder) {
+  #calculateBenefits(visitDate, menuOrder) {
     const benefitChecker = new BenefitChecker(visitDate, menuOrder);
     return benefitChecker;
   }
 
-  showBenefitResult(menuOrder, benefitChecker) {
+  #showBenefitResult(menuOrder, benefitChecker) {
     const benefitResult = benefitChecker.getBenefitBoard();
     const totalBenefit = benefitChecker.calculateTotalBenefit();
     OutputView.printFreebie(benefitResult.freebie);
