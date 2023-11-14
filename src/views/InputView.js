@@ -9,7 +9,7 @@ const InputView = {
     return input;
   },
 
-  async readMenuOrder() {
+  async readOrderList() {
     const input = await Console.readLineAsync(
       `${READ_MESSAGE.SELECT_MENU_ORDER}\n`,
     );
