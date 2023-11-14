@@ -4,15 +4,21 @@ import DEFAULT_BENEFIT_BOARD from '../constants/Benefit.js';
 class BenefitChecker {
   #benefitBoard;
 
-  constructor() {
-    this.#benefitBoard = DEFAULT_BENEFIT_BOARD;
+  constructor(visitDate, menuOrder) {
+    this.#benefitBoard = { ...DEFAULT_BENEFIT_BOARD };
+    this.#validate(visitDate, menuOrder);
+  }
+
+  #validate(visitDate, menuOrder) {
+    const totalBenefit = menuOrder.calculateTotalPrice();
+    if (totalBenefit >= 10000) this.#checkAllBenefit(visitDate, menuOrder);
   }
 
   getBenefitBoard() {
     return this.#benefitBoard;
   }
 
-  checkAllBenefit(visitDate, menuOrder) {
+  #checkAllBenefit(visitDate, menuOrder) {
     this.#checkFreebie(menuOrder);
     this.#checkWeekDaySale(visitDate, menuOrder);
     this.#checkWeekendDaySale(visitDate, menuOrder);
@@ -32,11 +38,23 @@ class BenefitChecker {
     return totalBenefit;
   }
 
+  calculateRealBenefit() {
+    const values = Object.values(this.#benefitBoard);
+
+    let totalBenefit = 0;
+    values.forEach((value) => {
+      if (value.length !== 2) totalBenefit += value;
+    });
+
+    return totalBenefit;
+  }
+
   calculateEventBadge() {
     const totalBenefit = this.calculateTotalBenefit();
     if (totalBenefit > 20000) return '산타';
     if (totalBenefit > 10000) return '트리';
     if (totalBenefit > 5000) return '별';
+    return '없음';
   }
 
   #checkFreebie(menuOrder) {
