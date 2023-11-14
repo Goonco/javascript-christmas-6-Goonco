@@ -1,4 +1,4 @@
-import { EVENT_MONTH } from './EventConstants';
+import { EVENT_MONTH } from './EventConstants.js';
 
 export const PRINT_MESSAGE = {
   START_PLANNER: '안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.',
