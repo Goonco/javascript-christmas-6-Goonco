@@ -1,7 +1,4 @@
-import {
-  isDayPositiveInteger,
-  isDayInBound,
-} from '../validators/DateValidators.js';
+import DateValidator from '../validators/DateValidators.js';
 import EventCalendar from './EventCalendar.js';
 
 class VisitDate {
@@ -17,8 +14,8 @@ class VisitDate {
   }
 
   #validate(visitDate) {
-    isDayPositiveInteger(visitDate);
-    isDayInBound(visitDate);
+    DateValidator.isDayPositiveInteger(visitDate);
+    DateValidator.isDayInBound(visitDate);
   }
 
   checkWeekDay() {

@@ -1,8 +1,4 @@
-import {
-  isMonthPositiveInteger,
-  isYearPositiveInteger,
-  isMonthInBound,
-} from '../validators/DateValidators.js';
+import DateValidator from '../validators/DateValidators.js';
 
 class EventCalendar {
   static #calendar;
@@ -13,9 +9,9 @@ class EventCalendar {
   }
 
   static #validate(year, month) {
-    isMonthPositiveInteger(month);
-    isYearPositiveInteger(year);
-    isMonthInBound(month);
+    DateValidator.isMonthPositiveInteger(month);
+    DateValidator.isYearPositiveInteger(year);
+    DateValidator.isMonthInBound(month);
   }
 
   static getYear() {
