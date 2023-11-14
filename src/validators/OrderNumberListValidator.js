@@ -1,9 +1,5 @@
 import { ERROR_ORDER } from '../constants/ErrorMessage.js';
-
-const isPositiveInteger = (number) => {
-  if (Number.isInteger(number) && number > 0) return true;
-  return false;
-};
+import { isPositiveInteger } from './DateValidators.js';
 
 export const isOrderPositiveInteger = (orderList) => {
   const checkOrderIntegr = orderList.every((order) => isPositiveInteger(order));

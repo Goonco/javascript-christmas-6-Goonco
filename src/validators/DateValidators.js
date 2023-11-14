@@ -1,4 +1,5 @@
 import { ERROR_CALENDAR, ERROR_VISIT_DATE } from '../constants/ErrorMessage.js';
+import EventCalendar from '../models/EventCalendar.js';
 
 export const isPositiveInteger = (number) => {
   if (Number.isInteger(number) && number > 0) return true;
@@ -21,7 +22,8 @@ export const isYearPositiveInteger = (year) => {
 };
 
 export const isDayInBound = (day) => {
-  if (day < 1 || day > 31) throw new Error(ERROR_VISIT_DATE.DATE_OUT_OF_BOUND);
+  if (day < 1 || day > EventCalendar.getLastDayOfMonth())
+    throw new Error(ERROR_VISIT_DATE.DATE_OUT_OF_BOUND);
 };
 
 export const isMonthInBound = (month) => {
