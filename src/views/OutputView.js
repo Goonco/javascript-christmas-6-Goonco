@@ -4,14 +4,17 @@ import {
   PRINT_HEADERS,
   PRINT_MESSAGE,
 } from '../constants/PlannerMessage.js';
+import { EventCalendar } from '../models/Export.js';
 
 const OutputView = {
   printStartMessage() {
-    Console.print(PRINT_MESSAGE.START_PLANNER);
+    Console.print(PRINT_MESSAGE.START_PLANNER(EventCalendar.getMonth()));
   },
 
   printShowBenefitMessage(visitDate) {
-    Console.print(PRINT_MESSAGE.SHOW_BENEFITS(visitDate));
+    Console.print(
+      PRINT_MESSAGE.SHOW_BENEFITS(EventCalendar.getMonth(), visitDate),
+    );
     OutputView.printLineChange();
   },
 
@@ -37,7 +40,7 @@ const OutputView = {
   },
 
   printEventBadge(eventBadge) {
-    Console.print(PRINT_HEADERS.BADGE);
+    Console.print(PRINT_HEADERS.BADGE(EventCalendar.getMonth()));
     Console.print(eventBadge);
     OutputView.printLineChange();
   },
