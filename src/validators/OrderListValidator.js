@@ -6,7 +6,7 @@ const OrderListValidator = {
     orderList.forEach((order) => {
       totalOrder += order.getOrder().quantity;
     });
-    if (totalOrder > 20) throw new Error(ERROR_ORDERLIST.QUANTATY_TOO_MUCH);
+    if (totalOrder > 20) throw new Error(ERROR_ORDERLIST.QUANTITY_TOO_MUCH);
   },
 
   isUniqueMenuList(orderList) {

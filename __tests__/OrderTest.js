@@ -1,9 +1,7 @@
-import { Order, EventCalendar } from '../src/models/Export.js';
+import { Order } from '../src/models/Export.js';
 import { ERROR_ORDER } from '../src/constants/ErrorMessage.js';
 
 describe('Order 클래스 테스트', () => {
-  EventCalendar.makeCalendar(2023, 12);
-
   test('생성자 테스트', () => {
     const inputs = [
       ['짜장면', '3'],
