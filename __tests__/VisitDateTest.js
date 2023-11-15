@@ -1,4 +1,3 @@
-import { Console } from '@woowacourse/mission-utils';
 import { VisitDate, EventCalendar } from '../src/models/Export.js';
 import { ERROR_VISIT_DATE } from '../src/constants/ErrorMessage.js';
 
@@ -20,38 +19,38 @@ describe('VisitDate 클래스 테스트', () => {
   });
 
   test('메소드 테스트 - checkWeekDay', () => {
-    const input = [5, 13, 21, 29];
+    const inputs = [5, 13, 21, 29];
     const log = [true, true, true, false];
 
-    input.forEach((date, idx) => {
-      expect(new VisitDate(date).checkWeekDay()).toBe(log[idx]);
+    inputs.forEach((input, idx) => {
+      expect(new VisitDate(input).checkWeekDay()).toBe(log[idx]);
     });
   });
 
   test('메소드 테스트 - checkWeekendDay', () => {
-    const input = [8, 16, 23, 28];
+    const inputs = [8, 16, 23, 28];
     const log = [true, true, true, false];
 
-    input.forEach((date, idx) => {
-      expect(new VisitDate(date).checkWeekendDay()).toBe(log[idx]);
+    inputs.forEach((input, idx) => {
+      expect(new VisitDate(input).checkWeekendDay()).toBe(log[idx]);
     });
   });
 
   test('메소드 테스트 - checkSpecialDay', () => {
-    const input = [3, 10, 25, 26];
+    const inputs = [3, 10, 25, 26];
     const log = [true, true, true, false];
 
-    input.forEach((date, idx) => {
-      expect(new VisitDate(date).checkSpecialDay()).toBe(log[idx]);
+    inputs.forEach((input, idx) => {
+      expect(new VisitDate(input).checkSpecialDay()).toBe(log[idx]);
     });
   });
 
   test('메소드 테스트 - checkChristmasDDay', () => {
-    const input = [1, 5, 9, 24, 28];
+    const inputs = [1, 5, 9, 24, 28];
     const log = [0, 4, 8, 23, 27];
 
-    input.forEach((date, idx) => {
-      expect(new VisitDate(date).checkChristmasDDay()).toBe(log[idx]);
+    inputs.forEach((input, idx) => {
+      expect(new VisitDate(input).checkChristmasDDay()).toBe(log[idx]);
     });
   });
 });
