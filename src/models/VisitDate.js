@@ -1,7 +1,7 @@
 import DateValidator from '../validators/DateValidators.js';
-import EventCalendar from './EventCalendar.js';
+import { EventCalendar } from './EventCalendar.js';
 
-class VisitDate {
+export class VisitDate {
   #visitDate;
 
   constructor(visitDate) {
@@ -41,5 +41,3 @@ class VisitDate {
     return -1;
   }
 }
-
-export default VisitDate;

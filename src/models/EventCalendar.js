@@ -1,6 +1,6 @@
 import DateValidator from '../validators/DateValidators.js';
 
-class EventCalendar {
+export class EventCalendar {
   static #calendar;
 
   static makeCalendar(year, month) {

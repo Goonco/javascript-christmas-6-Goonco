@@ -1,6 +1,7 @@
 import OrderListValidator from '../validators/OrderListValidator.js';
+import InstanceValidator from '../validators/InstanceValidator.js';
 
-class OrderList {
+export class OrderList {
   #orderList;
 
   constructor(orderList) {
@@ -9,6 +10,7 @@ class OrderList {
   }
 
   #validate(orderList) {
+    InstanceValidator.isOrderListMadeOfOrder(orderList);
     OrderListValidator.isUniqueMenuList(orderList);
     OrderListValidator.isNotOnlyDrink(orderList);
     OrderListValidator.isNotTooMuchOrder(orderList);
@@ -38,5 +40,3 @@ class OrderList {
     return count;
   }
 }
-
-export default OrderList;

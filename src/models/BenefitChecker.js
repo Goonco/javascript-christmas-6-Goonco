@@ -1,8 +1,8 @@
 import WOOWA_MENU from '../constants/WoowaMenu.js';
 import DEFAULT_BENEFIT_BOARD from '../constants/Benefit.js';
-import EventCalendar from './EventCalendar.js';
+import { EventCalendar } from './EventCalendar.js';
 
-class BenefitChecker {
+export class BenefitChecker {
   #benefitBoard;
 
   constructor(visitDate, menuOrder) {
@@ -86,5 +86,3 @@ class BenefitChecker {
     this.#benefitBoard.christmasDDay = 1000 + 100 * dDay;
   }
 }
-
-export default BenefitChecker;
