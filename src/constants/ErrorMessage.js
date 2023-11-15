@@ -25,6 +25,8 @@ export const ERROR_CALENDAR = {
 
 export const ERROR_INSTANCE = {
   ERROR_ORDERLIST_NOT_MADE_OF_ORDER: `[ERROR] Elements not made of Order Instance`,
+  ERROR_DISCOUNTLIST_NOT_MADE_OF_BENEFIT: `[ERROR] Elements not made of Benefit Instance`,
   ERROR_NOT_VISIT_DATE: `[ERROR] Instance not VisitDate`,
   ERROR_NOT_ORDERLIST: `[ERROR] Instance not OrderList`,
+  ERROR_NOT_FREEBIE_BENEFIT: `[ERROR] Instance not Freebie Benefit`,
 };

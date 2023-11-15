@@ -1,4 +1,5 @@
 import { EVENT_BADGE } from '../constants/EventConstants.js';
+import InstanceValidator from '../validators/InstanceValidator.js';
 
 export class BenefitList {
   #discountList;
@@ -12,8 +13,8 @@ export class BenefitList {
   }
 
   #validate(discountList, freebie) {
-    // discountList 는 Benefit으로 차있는지
-    // freebie는 freebiebenefit인지
+    InstanceValidator.isDiscountListMadeOfBenefit(discountList);
+    InstanceValidator.isFreebie(freebie);
   }
 
   getDiscountList() {
