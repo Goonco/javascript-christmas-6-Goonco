@@ -1,7 +1,7 @@
 import OrderValidator from '../validators/OrderValidator.js';
 import WOOWA_MENU from '../constants/WoowaMenu.js';
 
-class Order {
+export class Order {
   #order;
 
   constructor(menu, quantity) {
@@ -31,5 +31,3 @@ class Order {
     return WOOWA_MENU[this.#order.menu].price * this.#order.quantity;
   }
 }
-
-export default Order;
