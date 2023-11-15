@@ -5,7 +5,7 @@ import {
   SpecialSaleBenefit,
   ChristmasSaleBenefit,
   FreebieBenefit,
-} from '../models/Benefit/index.js';
+} from '../models/Benefit/Export.js';
 
 const constructors = [
   WeekendSaleBenefit,

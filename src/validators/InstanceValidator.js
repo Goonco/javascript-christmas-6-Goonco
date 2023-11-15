@@ -1,5 +1,5 @@
 import { ERROR_INSTANCE } from '../constants/ErrorMessage.js';
-import { Order, OrderList, VisitDate } from '../models/index.js';
+import { Order, OrderList, VisitDate } from '../models/Export.js';
 
 const InstanceValidator = {
   isListMadeOfInstance(list, classConstructor) {

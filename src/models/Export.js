@@ -4,4 +4,3 @@ export * from './OrderList.js';
 export * from './EventCalendar.js';
 export * from './Benefit/Benefit.js';
 export * from './BenefitList.js';
-export * from './BenefitChecker.js';

@@ -8,7 +8,7 @@ import {
   OrderList,
   VisitDate,
   BenefitList,
-} from './models/index.js';
+} from './models/Export.js';
 import { EVENT_YEAR, EVENT_MONTH } from './constants/EventConstants.js';
 import GenerateBenefitList from './utils/GenerateBenefitList.js';
 

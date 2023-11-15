@@ -4,7 +4,7 @@ import {
   SpecialSaleBenefit,
   WeekSaleBenefit,
   WeekendSaleBenefit,
-} from '../models/Benefit/index.js';
+} from '../models/Benefit/Export.js';
 
 const GenerateBenefitList = {
   generateAllBenefits(orderList, visitDate) {
