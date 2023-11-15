@@ -1,12 +1,16 @@
 import OutputView from './views/OutputView.js';
 import InputView from './views/InputView.js';
-import VisitDate from './models/VisitDate.js';
-import BenefitChecker from './models/BenefitChecker.js';
 import readUntilNoError from './utils/ReadUntilNoError.js';
 import StringParser from './utils/StringParser.js';
-import EventCalendar from './models/EventCalendar.js';
-import OrderList from './models/OrderList.js';
+import PrintByBenefitList from './utils/PrintByBenefitList.js';
+import {
+  EventCalendar,
+  OrderList,
+  VisitDate,
+  BenefitList,
+} from './models/index.js';
 import { EVENT_YEAR, EVENT_MONTH } from './constants/EventConstants.js';
+import GenerateBenefitList from './utils/GenerateBenefitList.js';
 
 class EventPlanner {
   async run() {
@@ -37,32 +41,32 @@ class EventPlanner {
 
   #showOrderResult(visitDate, orderList) {
     OutputView.printShowBenefitMessage(visitDate.getVisitDate());
-    OutputView.printLineChange();
     OutputView.printOrderResult(orderList.generateOrderList());
-    OutputView.printLineChange();
     OutputView.printTotalPriceBeforeSale(orderList.calculateTotalPrice());
-    OutputView.printLineChange();
   }
 
   #calculateBenefits(visitDate, orderList) {
-    const benefitChecker = new BenefitChecker(visitDate, orderList);
-    return benefitChecker;
+    const discountList = GenerateBenefitList.generateDiscountList(
+      visitDate,
+      orderList,
+    );
+    const freebie = GenerateBenefitList.generateFreebie(visitDate, orderList);
+
+    const benefitList = new BenefitList(discountList, freebie);
+    return benefitList;
   }
 
-  #showBenefitResult(orderList, benefitChecker) {
-    const benefitResult = benefitChecker.getBenefitBoard();
-    const totalBenefit = benefitChecker.calculateTotalBenefit();
-    OutputView.printFreebie(benefitResult.freebie);
-    OutputView.printLineChange();
-    OutputView.printBenefitList(benefitResult, totalBenefit);
-    OutputView.printLineChange();
-    OutputView.printTotalBenefit(totalBenefit);
-    OutputView.printLineChange();
-    OutputView.printTotalPriceAfterSale(
-      orderList.calculateTotalPrice() - benefitChecker.calculateRealBenefit(),
+  #showBenefitResult(orderList, benefitList) {
+    OutputView.printFreebie(benefitList.getFreebieAndPrice());
+    OutputView.printBenefitList(
+      PrintByBenefitList.printBenefitList,
+      benefitList,
     );
-    OutputView.printLineChange();
-    OutputView.printEventBadge(benefitChecker.calculateEventBadge());
+    OutputView.printTotalBenefit(benefitList.calculateTotalBenefit());
+    OutputView.printTotalPriceAfterSale(
+      orderList.calculateTotalPrice() - benefitList.calculateDiscountBenefit(),
+    );
+    OutputView.printEventBadge(benefitList.calculateEventBadge());
   }
 }
 
