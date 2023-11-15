@@ -37,7 +37,6 @@ export class VisitDate {
   }
 
   checkChristmasDDay() {
-    if (this.#visitDate <= 25) return this.#visitDate - 1;
-    return -1;
+    return this.#visitDate - 1;
   }
 }
