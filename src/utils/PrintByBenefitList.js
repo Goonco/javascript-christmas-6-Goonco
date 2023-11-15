@@ -36,13 +36,12 @@ const PrintByBenefitList = {
     const discountList = benefitList.getDiscountList();
     const freebie = benefitList.getFreebie();
 
-    if (discountList.length === 0 && freebie.getBenefitAmount() === 0)
-      OutputView.printNothing();
+    if (discountList.length === 0 && freebie === 0) OutputView.printNothing();
     else {
       discountList.forEach((benefit) => {
         printBenefit(benefit);
       });
-      if (freebie.getBenefitAmount() !== 0) {
+      if (freebie === 0) {
         printBenefit(freebie);
       }
     }

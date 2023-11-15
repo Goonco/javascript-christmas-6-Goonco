@@ -56,7 +56,7 @@ class EventPlanner {
   }
 
   #showBenefitResult(orderList, benefitList) {
-    OutputView.printFreebie(benefitList.getFreebieAndPrice());
+    OutputView.printFreebie(benefitList.getFreebie());
     OutputView.printBenefitList(
       PrintByBenefitList.printBenefitList,
       benefitList,

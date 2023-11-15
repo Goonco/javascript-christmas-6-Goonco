@@ -5,6 +5,7 @@ import {
   PRINT_MESSAGE,
 } from '../constants/PlannerMessage.js';
 import { EventCalendar } from '../models/Export.js';
+import { EVENT_FREEBIE_MENU } from '../constants/EventConstants.js';
 
 const OutputView = {
   printStartMessage() {
@@ -54,7 +55,7 @@ const OutputView = {
   printFreebie(freebie) {
     Console.print(PRINT_HEADERS.FREEBIE);
     if (freebie === 0) Console.print(PRINT_FORMATS.NO_BENEFIT);
-    else Console.print(PRINT_FORMATS.ORDER_RESULT('샴페인', 1));
+    else Console.print(PRINT_FORMATS.ORDER_RESULT(EVENT_FREEBIE_MENU, 1));
     OutputView.printLineChange();
   },
 

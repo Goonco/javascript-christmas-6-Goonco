@@ -21,11 +21,7 @@ export class BenefitList {
   }
 
   getFreebie() {
-    return this.#freebie;
-  }
-
-  getFreebieAndPrice() {
-    return [this.#freebie.getFreebie(), this.#freebie.getBenefitAmount()];
+    return this.#freebie.getBenefitAmount();
   }
 
   calculateDiscountBenefit() {

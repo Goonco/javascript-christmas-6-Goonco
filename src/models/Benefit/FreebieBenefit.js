@@ -25,8 +25,4 @@ export class FreebieBenefit extends Benefit {
   calculateBenefit() {
     return EVENT_MENU[this.#freebie].price;
   }
-
-  getFreebie() {
-    return this.#freebie;
-  }
 }

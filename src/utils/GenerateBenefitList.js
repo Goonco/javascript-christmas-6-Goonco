@@ -5,6 +5,7 @@ import {
   WeekSaleBenefit,
   WeekendSaleBenefit,
 } from '../models/Benefit/Export.js';
+import { EVENT_FREEBIE_MENU } from '../constants/EventConstants.js';
 
 const GenerateBenefitList = {
   generateAllBenefits(orderList, visitDate) {
@@ -30,7 +31,7 @@ const GenerateBenefitList = {
   },
 
   generateFreebie(orderList, visitDate) {
-    return new FreebieBenefit(orderList, visitDate, '샴페인');
+    return new FreebieBenefit(orderList, visitDate, EVENT_FREEBIE_MENU);
   },
 };
 
