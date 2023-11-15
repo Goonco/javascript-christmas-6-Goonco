@@ -1,4 +1,4 @@
-import Order from '../models/Order.js';
+import { Order } from '../models/index.js';
 
 const StringParser = {
   stringToNumber(string) {
