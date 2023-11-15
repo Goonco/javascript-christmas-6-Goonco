@@ -9,7 +9,6 @@ import {
   VisitDate,
   BenefitList,
 } from './models/Export.js';
-import { EVENT_YEAR, EVENT_MONTH } from './constants/EventConstants.js';
 import GenerateBenefitList from './utils/GenerateBenefitList.js';
 
 class EventPlanner {
@@ -23,7 +22,7 @@ class EventPlanner {
   }
 
   #activate() {
-    EventCalendar.makeCalendar(EVENT_YEAR, EVENT_MONTH);
+    EventCalendar.makeCalendar(2023, 12);
     OutputView.printStartMessage();
   }
 

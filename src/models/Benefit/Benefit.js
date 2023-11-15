@@ -1,4 +1,5 @@
 import InstanceValidator from '../../validators/InstanceValidator.js';
+import { EVENT_MINIMUM_PRICE } from '../../constants/EventConstants.js';
 
 export class Benefit {
   _visitDate;
@@ -17,7 +18,7 @@ export class Benefit {
   }
 
   qualifyByTotalOrderPrice() {
-    return this._orderList.calculateTotalPrice() >= 10000;
+    return this._orderList.calculateTotalPrice() >= EVENT_MINIMUM_PRICE;
   }
 
   getBenefitAmount() {
@@ -26,9 +27,6 @@ export class Benefit {
     return 0;
   }
 
-  /*
-    Need to be overrided
-  */
   qualifyBenefit() {
     return true;
   }

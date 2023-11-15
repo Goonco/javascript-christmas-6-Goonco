@@ -1,6 +1,6 @@
 import DateValidator from './DateValidators.js';
 import { ERROR_ORDER } from '../constants/ErrorMessage.js';
-import WOOWA_MENU from '../constants/WoowaMenu.js';
+import { EVENT_MENU } from '../constants/EventConstants.js';
 
 const OrderValidator = {
   isQuantityPositiveInteger(quantatiy) {
@@ -9,7 +9,7 @@ const OrderValidator = {
   },
 
   isExistingMenu(menu) {
-    if (!(menu in WOOWA_MENU)) throw new Error(ERROR_ORDER.MENU_NOT_EXISTING);
+    if (!(menu in EVENT_MENU)) throw new Error(ERROR_ORDER.MENU_NOT_EXISTING);
   },
 };
 

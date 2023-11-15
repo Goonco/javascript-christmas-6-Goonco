@@ -1,4 +1,5 @@
 import { Benefit } from './Benefit.js';
+import { EVENT_SPECIAL_SALE } from '../../constants/EventConstants.js';
 
 export class SpecialSaleBenefit extends Benefit {
   qualifyBenefit() {
@@ -6,6 +7,6 @@ export class SpecialSaleBenefit extends Benefit {
   }
 
   calculateBenefit() {
-    return 1000;
+    return EVENT_SPECIAL_SALE;
   }
 }

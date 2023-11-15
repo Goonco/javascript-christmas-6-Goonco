@@ -1,3 +1,5 @@
+import { EVENT_BADGE } from '../constants/EventConstants.js';
+
 export class BenefitList {
   #discountList;
 
@@ -41,9 +43,13 @@ export class BenefitList {
 
   calculateEventBadge() {
     const totalBenefit = this.calculateTotalBenefit();
-    if (totalBenefit > 20000) return '산타';
-    if (totalBenefit > 10000) return '트리';
-    if (totalBenefit > 5000) return '별';
-    return '없음';
+    let resultBadge = '없음';
+
+    EVENT_BADGE.forEach((eventBadgeInfo) => {
+      const { price, badge } = { ...eventBadgeInfo };
+      if (price <= totalBenefit) resultBadge = badge;
+    });
+
+    return resultBadge;
   }
 }

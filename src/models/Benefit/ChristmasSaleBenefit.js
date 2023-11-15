@@ -1,4 +1,8 @@
 import { Benefit } from './Benefit.js';
+import {
+  EVENT_CHRISTMAS_BASE_SALE,
+  EVENT_CHRISTMAS_INCREASE_SALE,
+} from '../../constants/EventConstants.js';
 
 export class ChristmasSaleBenefit extends Benefit {
   qualifyBenefit() {
@@ -6,6 +10,9 @@ export class ChristmasSaleBenefit extends Benefit {
   }
 
   calculateBenefit() {
-    return 1000 + 100 * this._visitDate.checkChristmasDDay();
+    return (
+      EVENT_CHRISTMAS_BASE_SALE +
+      EVENT_CHRISTMAS_INCREASE_SALE * this._visitDate.checkChristmasDDay()
+    );
   }
 }

@@ -1,6 +1,9 @@
 import { Benefit } from './Benefit.js';
 import OrderValidator from '../../validators/OrderValidator.js';
-import WOOWA_MENU from '../../constants/WoowaMenu.js';
+import {
+  EVENT_MENU,
+  EVENT_FREEBIE_QUALIFY,
+} from '../../constants/EventConstants.js';
 
 export class FreebieBenefit extends Benefit {
   #freebie;
@@ -16,11 +19,11 @@ export class FreebieBenefit extends Benefit {
   }
 
   qualifyBenefit() {
-    return this._orderList.calculateTotalPrice() >= 120000;
+    return this._orderList.calculateTotalPrice() >= EVENT_FREEBIE_QUALIFY;
   }
 
   calculateBenefit() {
-    return WOOWA_MENU[this.#freebie].price;
+    return EVENT_MENU[this.#freebie].price;
   }
 
   getFreebie() {

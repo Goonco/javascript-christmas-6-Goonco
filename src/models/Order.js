@@ -1,5 +1,5 @@
 import OrderValidator from '../validators/OrderValidator.js';
-import WOOWA_MENU from '../constants/WoowaMenu.js';
+import { EVENT_MENU } from '../constants/EventConstants.js';
 
 export class Order {
   #order;
@@ -19,7 +19,7 @@ export class Order {
   }
 
   getMenuType() {
-    return WOOWA_MENU[this.#order.menu].type;
+    return EVENT_MENU[this.#order.menu].type;
   }
 
   getQuantityByType(type) {
@@ -28,6 +28,6 @@ export class Order {
   }
 
   getPrice() {
-    return WOOWA_MENU[this.#order.menu].price * this.#order.quantity;
+    return EVENT_MENU[this.#order.menu].price * this.#order.quantity;
   }
 }
