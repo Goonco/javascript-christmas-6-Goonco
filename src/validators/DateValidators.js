@@ -1,5 +1,5 @@
 import { ERROR_CALENDAR, ERROR_VISIT_DATE } from '../constants/ErrorMessage.js';
-import EventCalendar from '../models/EventCalendar.js';
+import { EventCalendar } from '../models/index.js';
 
 const DateValidator = {
   isPositiveInteger(number) {
